@@ -3,21 +3,27 @@
 using namespace std;
 
 int main() {
-    string chaine;
-    cout << "Entrez une chaine en CamelCase : "<< endl;
-    cin >> chaine;
+    string verbe;
+    cout << "veuiller saisir un verbe à l'infinitif : ";
+    cin >> verbe;
 
-    string resultat;
-    resultat += chaine[0];
 
-    for(int i = 1; i < chaine.size(); i++) {
+    if(verbe.size() >= 2) {
+        string fin = verbe.substr(verbe.size() - 2);
 
-        if(chaine[i] >= 'A' && chaine[i] <= 'Z') {
-            resultat += " ";
+        if(fin == "er" && verbe != "aller") {
+            cout << "Ce verbe appartient au 1er groupe." << endl;
         }
-        resultat += chaine[i];
+        else if(fin == "ir") {
+            cout << "Ce verbe appartient au 2e groupe." << endl;
+        }
+        else {
+            cout << "Ce verbe appartient au 3e groupe." << endl;
+        }
+    }
+    else {
+        cout << "Verbe trop court." << endl;
     }
 
-    cout << "Phrase convertie : " << resultat << endl;
     return 0;
 }
